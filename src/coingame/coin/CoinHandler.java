@@ -26,7 +26,7 @@ public class CoinHandler {
                     coin.updateFluctuationRate();
                 }
 
-//                System.out.println(coin);
+                System.out.println(coin);
 
 
                 // 마지막에 전일가 업데이트

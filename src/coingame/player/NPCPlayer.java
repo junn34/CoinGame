@@ -1,10 +1,17 @@
 package coingame.player;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+
+import coingame.coin.Coin;
+import coingame.service.CoinChart;
 
 public class NPCPlayer extends Player {
     private Map<String, Integer> actionRatio; // 행동 비율
-
+    private CoinChart coinChart;
+    private Coin currentCoin;
     public NPCPlayer(String name, int startingCash, Map<String, Integer> actionRatio) {
         super(name, startingCash);
         this.actionRatio = actionRatio;
@@ -28,8 +35,8 @@ public class NPCPlayer extends Player {
         int amount = new Random().nextInt(3) + 1; // 1~3개
 
         switch (chosenAction) {
-            case "buy" -> buyCoin(coin, amount, coinPrices.get(coin));
-            case "sell" -> sellCoin(coin, amount, coinPrices.get(coin));
+            case "buy" -> buyCoin(coinChart, amount, coinPrices.get(coin));
+            case "sell" -> sellCoin(currentCoin.getCoinName(), amount);
             case "wait" -> System.out.println(getName() + "는 대기 중");
         }
     }
