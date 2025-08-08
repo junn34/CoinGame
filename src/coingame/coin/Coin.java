@@ -20,6 +20,9 @@ public class Coin implements CoinCalculate{
         return (afterPrice - beforePrice) * 100 / beforePrice;
     }
    
+    public int getAfterPrice() {
+    	return afterPrice;
+    }
 
     
 }

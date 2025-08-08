@@ -1,11 +1,8 @@
 package coingame.coin;
 
 public class CoinA extends Coin {
-
-    
-
 	private String coinName = "비트코인";
-    private int afterPrice = 160_000_000;
+	private int afterPrice = 160_000_000;
     private int beforePrice = 0;
     private int fluctuationRate;
     public CoinA(String coinName, int beforePrice, int afterPrice) {
@@ -31,7 +28,8 @@ public class CoinA extends Coin {
     public void setCoinName(String coinName) {
         this.coinName = coinName;
     }
-
+    
+    @Override
     public int getAfterPrice() {
         return afterPrice;
     }
