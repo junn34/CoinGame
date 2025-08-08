@@ -14,9 +14,11 @@ public class CoinWallet {
 	
 	public void addCoin(Coin coin) { 
 		coins.add(coin);
+//		System.out.println("당신의 코인 지갑에 " + coin + "을 넣었습니다.");
 	}
 	
 	public void removeCoin(int index) {
+//		System.out.println("당신의 코인 지갑에서 " + coins.get(index) + "을 제거 하였습니다.");
 		coins.remove(index);
 	}
 	
