@@ -8,7 +8,7 @@ public class CoinHandler {
 
     public void simulatePriceChange(int days) {
         for (int day = 1; day <= days; day++) {
-            System.out.println("Day " + day);
+//            System.out.println("Day " + day);
 
             for (Coin coin : coins) {
                 if (coin.getBeforePrice() == 0) {

@@ -27,6 +27,10 @@ public class Player {
     public int getCash() {
         return cash;
     }
+    
+    public CoinWallet getWallet() {
+    	return wallet;
+    }
 
     // 소지금 증가 (알바, 매도 시)
     public void increaseMoney(int amount) {
