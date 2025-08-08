@@ -13,7 +13,7 @@ public class Player {
     public Player(String name, int startingCash) {
         this.name = name;
         this.cash = startingCash;
-        this.wallet = new CoinWallet(this); // 나중에 구현체 연결
+        this.wallet = new CoinWallet(); // 나중에 구현체 연결
     }
 
     // 이름 Getter
@@ -49,9 +49,9 @@ public class Player {
     }
 
     // 코인 매도
-    public void sellCoin(String coinName, int amount, int pricePerCoin) {
+    public void sellCoin(int index) {
         if (wallet.getCoinAmount(coinName) >= amount) {
-            wallet.removeCoin(coinName, amount); // CoinWallet 메서드
+            wallet.removeCoin(index); // CoinWallet 메서드
             increaseMoney(amount * pricePerCoin);
             System.out.println(coinName + " 코인 " + amount + "개 매도 완료");
         } else {

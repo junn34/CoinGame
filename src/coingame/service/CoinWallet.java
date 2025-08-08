@@ -6,11 +6,6 @@ import coingame.coin.Coin;
 
 public class CoinWallet {
 	private ArrayList<Coin> coins = new ArrayList<>();
-	private Player player;
-	
-	public CoinWallet(Player player) {
-		this.player = player;
-	}
 	
 	public void addCoin(Coin coin) { 
 		coins.add(coin);
