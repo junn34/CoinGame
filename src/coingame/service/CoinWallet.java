@@ -7,8 +7,8 @@ import coingame.coin.Coin;
 
 public class CoinWallet {
 	
-	private HashMap<Coin, Integer> coins = new HashMap<>();
-	private HashMap<String, Integer> coinPrices = new HashMap<>();
+	public HashMap<Coin, Integer> coins = new HashMap<>();
+	public HashMap<String, Integer> coinPrices = new HashMap<>();
 	
 	public void addCoin(Coin coin, int count) {
         int currentCount = coins.getOrDefault(coin, 0);
