@@ -26,17 +26,14 @@ public class CoinHandler {
                     coin.updateFluctuationRate();
                 }
 
-               
-//                System.out.println("  코인: " + coin.getCoinName());
-//                System.out.println("    전일가: " + coin.getBeforePrice());
-//                System.out.println("    현재가: " + coin.getAfterPrice());
-//                System.out.println("    변동률: " + coin.getFluctuationRate() + "%");
+//                System.out.println(coin);
+
 
                 // 마지막에 전일가 업데이트
                 coin.nextDayUpdate();
             }
 
-            System.out.println(); // 개행
+            System.out.println(); 
         }
     }
 

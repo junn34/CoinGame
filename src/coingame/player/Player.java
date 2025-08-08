@@ -53,7 +53,7 @@ public class Player {
         // 3. 돈이 충분한지 확인
         if (cash < totalCost) {
             System.out.println("돈이 부족합니다!");
-            System.out.println("필요한 금액: " + totalCost + "원, 보유 금액: " + money + "원");
+            System.out.println("필요한 금액: " + totalCost + "원, 보유 금액: " + cash + "원");
             return;
         }
 
