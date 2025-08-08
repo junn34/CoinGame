@@ -16,8 +16,8 @@ public class CoinHandler {
                     coin.setBeforePrice(coin.getAfterPrice());
                     coin.setFluctuationRate(0);
 
-                    System.out.println("  코인: " + coin.getCoinName());
-                    System.out.println("    [초기] 전일가 없음 → 전일가 설정됨");
+//                    System.out.println("  코인: " + coin.getCoinName());
+//                    System.out.println("    [초기] 전일가 없음 → 전일가 설정됨");
                 } else {
                     int fluctuationPercent = random.nextInt(21) - 10;
                     int newAfterPrice = coin.getBeforePrice()
@@ -27,10 +27,10 @@ public class CoinHandler {
                 }
 
                
-                System.out.println("  코인: " + coin.getCoinName());
-                System.out.println("    전일가: " + coin.getBeforePrice());
-                System.out.println("    현재가: " + coin.getAfterPrice());
-                System.out.println("    변동률: " + coin.getFluctuationRate() + "%");
+//                System.out.println("  코인: " + coin.getCoinName());
+//                System.out.println("    전일가: " + coin.getBeforePrice());
+//                System.out.println("    현재가: " + coin.getAfterPrice());
+//                System.out.println("    변동률: " + coin.getFluctuationRate() + "%");
 
                 // 마지막에 전일가 업데이트
                 coin.nextDayUpdate();

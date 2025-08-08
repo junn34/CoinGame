@@ -45,4 +45,12 @@ public abstract class Coin {
     public void setAfterPrice(int afterPrice) {
         this.afterPrice = afterPrice;
     }
+    
+    @Override
+    public String toString() {
+        return "[ " + coinName+" ]\n"+
+               "  전일가: " + beforePrice + "\n" +
+               "  현재가: " + afterPrice + "\n" +
+               "  변동률: " + fluctuationRate + "%";
+    }
 }
