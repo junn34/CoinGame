@@ -19,7 +19,7 @@ public class Timer extends Thread {
 			}
 			if (running) {
 				timeOver = true;
-				System.out.println("TIME OVER");
+				System.out.println("시간이 임박했으니 마지막으로 취할 행동을 선택해주세요.");
 			}
 		} catch(InterruptedException e) {
 			e.printStackTrace();
