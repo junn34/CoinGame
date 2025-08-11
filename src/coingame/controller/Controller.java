@@ -136,19 +136,24 @@ public class Controller {
 
                 switch (choice) {
                     case 1:
-                        System.out.println("판매할 코인의 이름과 개수을 입력해주세요.");
+                        
                         player.getWallet().showMyCoins();
+                        System.out.println("판매할 코인의 이름과 개수을 입력해주세요.");
+                        System.out.print("코인 이름: ");
                         String coinToSell = sc.nextLine();
+                        System.out.print("개수: ");
                         int amountToSell = sc.nextInt();
                         sc.nextLine();
 
                         player.sellCoin(coinToSell, amountToSell);
                         break;
                     case 2:
-                        System.out.println("구매할 코인의 번호와 개수을 입력해주세요.");
                         coinChart.showCoinList();
+                        System.out.println("구매할 코인의 번호와 개수을 입력해주세요.");
+                        System.out.print("코인 번호: ");
                         int index = sc.nextInt();
                         sc.nextLine();
+                        System.out.print("개수: ");
                         int amountToBuy = sc.nextInt();
                         sc.nextLine();
 
