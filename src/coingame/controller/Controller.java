@@ -63,6 +63,10 @@ public class Controller {
                 startingCash = 100000;
 		}
 		
+		System.out.println();
+		System.out.println("현재 자산 현황: " + startingCash + "원");
+		System.out.println();
+		
 		player = new Player(name, startingCash);
 		
 		 npcList.add(NPCSetup.npc1);
