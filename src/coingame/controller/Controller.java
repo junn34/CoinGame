@@ -2,6 +2,7 @@ package coingame.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 import coingame.coin.Coin;
@@ -79,9 +80,13 @@ public class Controller {
                 startingCash = 50_000;     break;
             default:
                 System.out.println("잘못된 난이도, normal로 설정합니다.");
-                startingCash = 100_000;
-        }
-
+                startingCash = 1_000_000;
+		}
+		
+		System.out.println();
+		System.out.println("현재 자산 현황: " + startingCash + "원");
+		System.out.println();
+		
         player = new Player(name, startingCash);
 
         // NPC 등록
@@ -137,8 +142,8 @@ public class Controller {
 
             switch (choice) {
                 case 1: // 매도
-                    System.out.println("판매할 코인의 이름과 개수를 입력해주세요. (예: CoinA 3)");
-                    player.getWallet().showMyCoins();
+                	player.getWallet().showMyCoins();
+                    System.out.print("판매할 코인의 이름과 개수를 입력해주세요. (예: CoinA 3): ");
                     String sellLine = sc.nextLine().trim();
                     if (sellLine.isEmpty()) {
                         System.out.println("입력이 비어 있습니다.");
@@ -161,9 +166,9 @@ public class Controller {
                     break;
 
                 case 2: // 매수
-                    System.out.println("구매할 코인의 [번호]와 [개수]를 입력해주세요. (예: 0 5)");
-                    coinChart.showCoinList();
-
+                	coinChart.showCoinList();
+                    System.out.print("구매할 코인의 [번호]와 [개수]를 입력해주세요. (예: 0 5): ");
+                    
                     if (!sc.hasNextInt()) { sc.nextLine(); System.out.println("번호는 숫자."); break; }
                     int index = sc.nextInt();
                     if (!sc.hasNextInt()) { sc.nextLine(); System.out.println("개수는 숫자."); break; }
@@ -209,9 +214,35 @@ public class Controller {
     private void printFinalResult() {
         System.out.println();
         System.out.println("=== 최종 결과 ===");
+
+        // 이름-수익률 쌍 저장
+        List<Map.Entry<String, Double>> ranking = new ArrayList<>();
+
+        // 플레이어
         int finalAsset = player.getCash() + player.getWallet().getTotalCoinsPrice();
         int profit = finalAsset - startingCash;
         double profitRate = (double) profit / startingCash * 100.0;
-        System.out.println("수익률: " + profitRate + "%");
+        ranking.add(Map.entry(player.getName() + " (나)", profitRate));
+
+        // NPC
+        for (NPCPlayer npc : npcList) {
+            int npcFinalAsset = npc.getCash() + npc.getWallet().getTotalCoinsPrice();
+            int npcProfit = npcFinalAsset - npc.getStartingCash();
+            double npcProfitRate = (double) npcProfit / npc.getStartingCash() * 100.0;
+            ranking.add(Map.entry(npc.getName(), npcProfitRate));
+        }
+
+        // 수익률 내림차순 정렬
+        ranking.sort((a, b) -> Double.compare(b.getValue(), a.getValue()));
+
+        // 출력
+        for (int i = 0; i < ranking.size(); i++) {
+            System.out.printf("%d위: %s - 수익률 %.2f%%\n",
+                    i + 1, ranking.get(i).getKey(), ranking.get(i).getValue());
+        }
     }
+
+	
+
 }
+

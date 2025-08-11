@@ -7,35 +7,30 @@ import coingame.service.CoinChart;
 import coingame.service.CoinWallet;
 
 public class Player {
-    private String name;     // 플레이어 이름
+	private String name;     // 플레이어 이름
     private int cash;        // 현재 소지금
     private CoinWallet wallet; // 코인 지갑 (추후 구현체 연결)
     private final int startingCash;
-
     // 생성자 - 난이도 기반 시작 자본금 설정
     public Player(String name, int startingCash) {
         this.name = name;
         this.cash = startingCash;
-        this.startingCash = startingCash;
         this.wallet = new CoinWallet(); // 나중에 구현체 연결
+        this.startingCash = startingCash;
     }
-
     // 이름 Getter
     public String getName() {
         return name;
     }
-
     // 소지금 Getter
     public int getCash() {
         return cash;
     }
-    
-    public int getStartingCash() {
-        return startingCash;
-    }
-    
     public CoinWallet getWallet() {
     	return wallet;
+    }
+    public int getStartingCash() {
+        return startingCash;
     }
 
     // 소지금 증가 (알바, 매도 시)
@@ -124,7 +119,7 @@ public class Player {
     // 플레이어 상태 출력
     public void showStatus() {
         System.out.println("=== " + name + "의 현재 상태 ===");
-        System.out.println("보유 현금: " + startingCash + "원");
+        System.out.println("보유 현금: " + cash + "원");
         System.out.println("총 자산가치: " + (cash + wallet.getTotalCoinsPrice()) + "원");
         wallet.showMyCoins();
     }
