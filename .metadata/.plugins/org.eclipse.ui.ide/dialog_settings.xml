@@ -7,12 +7,17 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+<<<<<<< HEAD
 			<item value="C:\woori_workspace\CoinGame"/>
+=======
+			<item value="C:\woori_workspace\7.java\CoinGame"/>
+>>>>>>> a262f5a2a20af22df31ee3bd218950cd9f88fcf6
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
 			<item value=""/>
 		</list>
 		<section name="ExternalProjectImportWizard.dialogBounds">
+<<<<<<< HEAD
 			<item key="DIALOG_X_ORIGIN" value="513"/>
 			<item key="DIALOG_Y_ORIGIN" value="79"/>
 			<item key="DIALOG_WIDTH" value="525"/>
@@ -33,12 +38,23 @@
 			<item key="DIALOG_Y_ORIGIN" value="7"/>
 			<item key="DIALOG_WIDTH" value="890"/>
 			<item key="DIALOG_HEIGHT" value="626"/>
+=======
+			<item key="DIALOG_X_ORIGIN" value="206"/>
+			<item key="DIALOG_Y_ORIGIN" value="7"/>
+			<item key="DIALOG_WIDTH" value="613"/>
+			<item key="DIALOG_HEIGHT" value="861"/>
+>>>>>>> a262f5a2a20af22df31ee3bd218950cd9f88fcf6
 			<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 		</section>
 	</section>
 	<section name="ChooseWorkspaceDialogSettings">
+<<<<<<< HEAD
 		<item key="DIALOG_X_ORIGIN" value="474"/>
 		<item key="DIALOG_Y_ORIGIN" value="215"/>
+=======
+		<item key="DIALOG_X_ORIGIN" value="146"/>
+		<item key="DIALOG_Y_ORIGIN" value="134"/>
+>>>>>>> a262f5a2a20af22df31ee3bd218950cd9f88fcf6
 	</section>
 	<section name="WORKBENCH_SETTINGS">
 		<list key="ENABLED_TRANSFERS">
