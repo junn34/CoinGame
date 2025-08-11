@@ -66,7 +66,7 @@ public class Player {
         wallet.addCoin(selectedCoin, amount);  // 지갑에 코인 추가
         
         System.out.println("=== 구매 완료 ===");
-        System.out.println(selectedCoin.getCoinName() + " " + amount + "개를 구매했습니다!");
+        System.out.println(name+"이(가) "+selectedCoin.getCoinName() + " " + amount + "개를 구매했습니다!");
         System.out.println("구매가격: " + totalCost + "원");
         System.out.println("남은 돈: " + cash + "원");
         System.out.println("===============");
