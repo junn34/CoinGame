@@ -19,7 +19,7 @@ class CoinHandlerTest {
         coins.add(new CoinC());
 
         CoinHandler handler = new CoinHandler(coins);
-        String message="NOT NULL";
+        String message="handler is not found";
         assertNotNull(handler,message);
     }
 
@@ -47,7 +47,7 @@ class CoinHandlerTest {
 
             int lower = Math.max(1, (int)Math.round(before * 0.9));
             int upper = (int)Math.round(before * 1.1);
-            assertTrue(after >= lower && after <= upper, "after out of ±10% range");
+            assertTrue(after >= lower && after <= upper, "10% 오차 이외");
         }
     }
 
