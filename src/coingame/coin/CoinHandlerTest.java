@@ -10,7 +10,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class CoinHandlerTest {
-
+	//handler 객체 생성 확인
     @Test
     public void testCoinHandler() {
         List<Coin> coins = new ArrayList<>();
@@ -22,7 +22,7 @@ class CoinHandlerTest {
         String message="handler is not found";
         assertNotNull(handler,message);
     }
-
+    //전일가 현재가 설정, 10% 내외로 변동되는지 확인
     @Test
     void testSimulateToday() {
         // given
@@ -50,7 +50,7 @@ class CoinHandlerTest {
             assertTrue(after >= lower && after <= upper, "10% 오차 이외");
         }
     }
-
+    //현재가를 다음날 전일가로 옮기는지 확인
     @Test
     void testCloseDay() {
         List<Coin> coins = new ArrayList<>();
