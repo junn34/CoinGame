@@ -7,31 +7,35 @@ public class CoinHandler {
     private final List<Coin> coins;
     private final Random random = new Random();
 
-    public CoinHandler(List<Coin> coins) { this.coins = coins; }
+    public CoinHandler(List<Coin> coins) {
+        this.coins = coins;
+    }
 
-    // 오늘 변동만 적용
     public void simulateToday() {
         for (Coin coin : coins) {
             if (coin.getBeforePrice() == 0) {
-                // 1일차 세팅
                 coin.setBeforePrice(coin.getAfterPrice());
                 coin.setFluctuationRate(0);
-                
-            } else {
-                int pct = random.nextInt(21) - 10; // -10~10%
-                int newAfter = coin.getBeforePrice()
-                        + (coin.getBeforePrice() * pct / 100);
-                coin.setAfterPrice(newAfter);
-                coin.updateFluctuationRate(); // (after - before) / before
             }
+            int pct = random.nextInt(21) - 10;
+            int base = coin.getBeforePrice();
+            int delta = (int) Math.round(base * (pct / 100.0));
+            int newAfter = Math.max(1, base + delta);
+            coin.setAfterPrice(newAfter);
+            coin.updateFluctuationRate();
         }
     }
 
-    // 라운드 종료 시 호출
     public void closeDay() {
         for (Coin coin : coins) {
             coin.nextDayUpdate();
         }
     }
-}
 
+    public void advanceDays(int days) {
+        for (int i = 0; i < days; i++) {
+            simulateToday();
+            closeDay();
+        }
+    }
+}

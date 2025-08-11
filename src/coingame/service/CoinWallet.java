@@ -8,14 +8,10 @@ import coingame.coin.Coin;
 public class CoinWallet {
 	
 	public HashMap<Coin, Integer> coins = new HashMap<>();
-	public HashMap<String, Integer> coinPrices = new HashMap<>();
 	
 	public void addCoin(Coin coin, int count) {
         int currentCount = coins.getOrDefault(coin, 0);
         coins.put(coin, currentCount + count);
-        
-        // 코인 가격 정보도 업데이트
-        coinPrices.put(coin.getCoinName(), coin.getAfterPrice());
     }
 	
 	public void removeCoin(String coinName, int count) {
@@ -32,7 +28,6 @@ public class CoinWallet {
             if (currentCount <= count) {
                 // 보유량보다 많이 제거하려면 전부 제거
                 coins.remove(coinToUpdate);
-                coinPrices.remove(coinName);
             } else {
                 // 일부만 제거
                 coins.put(coinToUpdate, currentCount - count);
@@ -50,7 +45,7 @@ public class CoinWallet {
         for (Map.Entry<Coin, Integer> entry : coins.entrySet()) {
             Coin coin = entry.getKey();
             int quantity = entry.getValue();
-            int currentPrice = coinPrices.getOrDefault(coin.getCoinName(), coin.getAfterPrice());
+            int currentPrice = coin.getAfterPrice();
             
             System.out.println("[" + index + "] " + coin.getCoinName() + ": " + quantity + "개 (현재가: " + currentPrice + "원)");
             index++;
@@ -66,8 +61,7 @@ public class CoinWallet {
             Coin coin = entry.getKey();
             int quantity = entry.getValue();
             
-            // coinPrices에서 최신 가격을 가져오고, 없으면 coin 객체의 가격 사용
-            int currentPrice = coinPrices.getOrDefault(coin.getCoinName(), coin.getAfterPrice());
+            int currentPrice = coin.getAfterPrice();
             
             totalCoinsPrice += currentPrice * quantity;
         }

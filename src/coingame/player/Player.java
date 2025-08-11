@@ -101,7 +101,7 @@ public class Player {
         }
         
         // 4. 판매 가격 계산 (현재 가격으로 판매)
-        int currentPrice = wallet.coinPrices.getOrDefault(coinName, coinToSell.getAfterPrice());
+        int currentPrice = coinToSell.getAfterPrice();
         int sellAmount = currentPrice * amount;
         
         // 5. 판매 진행
